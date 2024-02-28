@@ -1,4 +1,4 @@
-package com.fiphiker.market;
+package com.fiphiker.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
