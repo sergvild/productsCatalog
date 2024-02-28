@@ -1,0 +1,28 @@
+server:
+  port: 8093
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      catalog-service:
+        sliding-window-size: 10
+        permitted-number-of-calls-in-half-open-state: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10000
+        register-health-indicator: true
+      inventory-service:
+        sliding-window-size: 10
+        permitted-number-of-calls-in-half-open-state: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10000
+        register-health-indicator: true
+  timelimiter:
+    instances:
+      catalog-service:
+        timeout-duration: 2s
+      inventory-service:
+        timeout-duration: 2s
